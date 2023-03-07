@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   def index
-    
+    # @items = Item.order(created_at: "DESC")
   end
 
   def new
-    @user = User.new
+    @item = Item.new
   end
 end
