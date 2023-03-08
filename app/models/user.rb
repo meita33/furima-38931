@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nick_name,          presence: true
-  validates :first_name,         presence: true
-  validates :last_name,          presence: true
+  validates :first_name_kanji,   presence: true
+  validates :last_name_kanji,    presence: true
   validates :first_name_kana,    presence: true
   validates :last_name_kana,     presence: true
   validates :birthday,           presence: true
