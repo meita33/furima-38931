@@ -1,4 +1,10 @@
 class Item < ApplicationRecord
+  belongs_to :user
+  # has_one :order
+  has_one_attached :image
+  belongs_to_active_hash :prefecture
+
+
   validates :
   validates :
   validates :
@@ -9,5 +15,5 @@ class Item < ApplicationRecord
   validates :prefecture_id
   validates :shipment_date_id
 
-  has_one_attached :image
+
 end
