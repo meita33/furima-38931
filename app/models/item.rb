@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :image
     validates :title,   length: { maximum: 40 }
     validates :detail,  length: { maximum: 1000 }
-    validates :price, inclusion: { in: 300..9999999 }, format: { with: /\A[0-9]+\z/ }
+    validates :price, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
   end
   validates :price, numericality: true
 
@@ -26,5 +26,3 @@ class Item < ApplicationRecord
     validates :shipment_date_id
   end
 end
-
-
