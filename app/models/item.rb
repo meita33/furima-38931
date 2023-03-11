@@ -26,3 +26,4 @@ class Item < ApplicationRecord
     validates :shipment_date_id
   end
 end
+
