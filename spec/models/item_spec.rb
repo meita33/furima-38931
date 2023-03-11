@@ -29,27 +29,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Detail can't be blank")
       end
       it 'カテゴリーが{---}（１）では登録できない' do
-        @item.category = nil
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '状態が{---}（１）では登録できない' do
-        @item.quality = nil
+        @item.quality_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Quality can't be blank")
       end
       it '配送料の負担が{---}（１）では登録できない' do
-        @item.postage = nil
+        @item.postage_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
       it '発送元の地域が{---}（１）では登録できない' do
-        @item.prefecture = nil
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '発送までの日数が{---}（１）では登録できない' do
-        @item.shipment_date = nil
+        @item.shipment_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipment date can't be blank")
       end
@@ -61,17 +61,17 @@ RSpec.describe Item, type: :model do
       it '販売価格が半角数字以外では登録できない' do
         @item.price = '２２全角'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is not a number')
+        expect(@item.errors.full_messages).to include('Price Half-width number')
       end
       it '販売価格が300円より安いと登録できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is not included in the list')
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
       it '販売価格が100万円以上では登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is not included in the list')
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
       it 'ユーザーが紐づいていなければ出品できない' do
         @item.user = nil
