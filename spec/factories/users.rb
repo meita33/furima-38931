@@ -27,4 +27,3 @@ end
 #     birthday            { Faker::Date.birthday }
 #   end
 # end
-
