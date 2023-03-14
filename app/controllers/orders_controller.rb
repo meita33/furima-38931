@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @order = Order.new
+    @item = Item.find(params[:item_id])
+    redirect_to root_path if current_user == @item.user
   end
 
   def create
@@ -17,6 +21,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price)
+    params.require(:order_address).permit(:order_id, :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order_id, )
   end
 end
