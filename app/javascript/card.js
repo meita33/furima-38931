@@ -5,9 +5,9 @@ const pay = () => {
   const expiryElement = elements.create('cardExpiry');    //有効期限のフォーム
   const cvcElement = elements.create('cardCvc');          //cvcのフォーム
 
-  numberElement.mount('#number-form');
-  expiryElement.mount('#expiry-form');
-  cvcElement.mount('#cvc-form');
+  numberElement.mount("#number-form");
+  expiryElement.mount("#expiry-form");
+  cvcElement.mount("#cvc-form");
 
   const submit = document.getElementById("button");
 
@@ -16,7 +16,7 @@ const pay = () => {
     payjp.createToken(numberElement).then(function (response) {
       if (response.error) {
       } else {
-        const token = response.id;   //ここでトークン値を取得
+        const token = response.id;                       //レスポンスでトークン値を取得
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} name='token' type="hidden">`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
@@ -24,7 +24,7 @@ const pay = () => {
     numberElement.clear();
     expiryElement.clear();
     cvcElement.clear();
-    document.getElementById("charge-form").submit(); //htmlファイルのform_withのid。フォームの情報をサーバーサイドに送信する処理がこれ。15行目をキャンセルしたので
+    document.getElementById("charge-form").submit();   //htmlファイルのform_withのid。フォームの情報をサーバーサイドに送信する処理がこれ。15行目をキャンセルしたので
     });
   });
 };
