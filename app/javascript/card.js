@@ -1,9 +1,9 @@
 const pay = () => {
   const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY);      //テスト公開鍵を環境変数で呼び出し
   const elements = payjp.elements();
-  const numberElement = elements.create('cardNumber');    //番号のフォーム
-  const expiryElement = elements.create('cardExpiry');    //有効期限のフォーム
-  const cvcElement = elements.create('cardCvc');          //cvcのフォーム
+  const numberElement = elements.create("cardNumber");    //番号のフォーム
+  const expiryElement = elements.create("cardExpiry");    //有効期限のフォーム
+  const cvcElement = elements.create("cardCvc");          //cvcのフォーム
 
   numberElement.mount("#number-form");
   expiryElement.mount("#expiry-form");
