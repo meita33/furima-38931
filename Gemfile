@@ -68,6 +68,7 @@ group :development do
   gem 'rubocop', require: false
 end
 
+# RenderからAWSに切り替えたことにより、DBがpgでは無くなったためコメントアウト
 # group :production do
 #   gem 'pg'
 # end
